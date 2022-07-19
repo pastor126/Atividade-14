@@ -1,0 +1,1 @@
+Na máquina docker foi trocado o IP (192.168.0.201) e inserido o gateway. No Hosts foi inserido o IP e DNS da atividade14.
