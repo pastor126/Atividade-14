@@ -9,6 +9,7 @@ $ chmod +x ./kubectl
 $ sudo mv ./kubectl /usr/local/bin/kubectl
 ````
 <br>
+
 > Para instalar o minikube:
 
 ````
