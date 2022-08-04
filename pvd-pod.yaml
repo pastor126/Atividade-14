@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvd-pod
+spec:
+  containers:
+    - name: mysqlcontainer
+      image: mysql:8.0.30
+      volumeMounts:
+        - mountPath: /pvd-container
+          name: pvd
+    - name: rediscontainer
+      image: redis  
+      volumeMounts:
+        - mountPath: /pvd-container
+          name: pvd
+  volumes:
+    - name: pvd
+      hostPath:
+        path: /pvd
+        type: Directory
+    

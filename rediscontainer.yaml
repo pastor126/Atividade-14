@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rediscontainer
+spec:
+  containers:
+    - name: redislabcontainer
+      image: redis
+      ports:
+        - containerPort: 6379
+    
