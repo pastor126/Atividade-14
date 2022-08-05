@@ -1,17 +1,25 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: mysqlcontainer
-  labels:
-    app: mysqlcontainer
+  name: mysqlcontainer-deploymentr
 spec:
-  containers: 
-    - name: mysqlcontainer
-      image: mysql:8.0.30
-      ports:
-        - containerPort: 3306
-      envFrom:
-        - configMapRef:
-            name: configmap-mysql
+  template:
+    metadata:
+      name: mysqlcontainer
+      labels:
+        app: mysqlcontainer
+    spec:
+      containers: 
+        - name: mysqlcontainer
+          image: mysql:8.0.30
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - configMapRef:
+                name: configmap-mysql
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysqlcontainer  
          
     
